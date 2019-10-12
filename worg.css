@@ -230,13 +230,6 @@ and modified a bit.. */
     /*  } */
 
     pre {
-        font-family: Droid Sans Mono, Monaco, Consolas, "Lucida Console", monospace;
-        color: black;
-        font-size: 90%;
-        background-color: #ffffff;
-        padding: 1.2em;
-        border: 2px solid #dddddd;
-        overflow: auto;
     }
 
     .org-info-box {
@@ -329,6 +322,13 @@ and modified a bit.. */
     }
 
     pre.src {
+	font-family: monospace;
+        color: black;
+        font-size: 100%;
+	background: 	#FFFFEE;
+        overflow: auto;
+	margin-left: -20px;
+	margin-right: -20px;
         position: static;
     }
 
@@ -974,14 +974,6 @@ and modified a bit.. */
     }
 } /* END OF @media screen */
 /* Code Samples */
-pre {
-    background: 	#FFFFEE;
-}
-#content #pre-stylish code {
-    display: block;
-    padding: 0.5em 1em;
-    border: 1px solid #bebab0;
-}
 
 /* original color #faebbc */
 blockquote {
