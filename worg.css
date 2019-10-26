@@ -125,14 +125,13 @@ and modified a bit.. */
         position: static;
     }
 
-    pre.example { /* RESULTS output from code evaluation */
+    pre.src-org { /* RESULTS output from code evaluation */
 	font-family: monospace;
         color: red;
         font-size: 100%;
 	background: 	#FFFFFF;
         overflow: auto;
         position: static;
-	margin-bottom: -24px;
     }
     ul {
 	margin-top: 0px;
