@@ -139,6 +139,7 @@ and modified a bit.. */
     }
     p {
 	margin-top: 0px;
+	margin-bottom: 0px;
     blockquote {
 	font: 14px/20px italic Times, serif;
 	background-color: #f1ffee;
