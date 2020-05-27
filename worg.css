@@ -148,4 +148,8 @@ and modified a bit.. */
 	margin: 5px;;
     }
 
+    .org-svg {
+	width: 100%;
+	preserveAspectRatio: none;
+    }
 }
