@@ -157,4 +157,8 @@ and modified a bit.. */
 	margin-right: auto;
 	preserveAspectRatio: none;
     }
+    img {
+	width:100%;
+	max-width: max-content;
+    }
 }
