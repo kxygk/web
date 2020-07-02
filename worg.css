@@ -151,14 +151,17 @@ and modified a bit.. */
 
     .org-svg {
 	width: 100%;
-	max-height: 500px;
+	max-height: 350px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	preserveAspectRatio: none;
     }
     img {
 	width:100%;
 	max-width: max-content;
+    }
+
+    .org-center {
+	text-align: center;
     }
 }
