@@ -134,7 +134,6 @@ and modified a bit.. */
         position: static;
     }
     ul {
-	font-style: italic;
 	list-style-type:none;
 	margin-top: 0px;
 	margin-bottom: 0px;
