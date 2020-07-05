@@ -66,6 +66,9 @@ and modified a bit.. */
     #license {
         background-color: #eeeeee;
     }
+    b {
+	font-family: serif ;
+    }
 
     h1 {
         /*
