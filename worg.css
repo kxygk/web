@@ -17,7 +17,8 @@ and modified a bit.. */
     }
 
     body {
-        font-size: 12pt;
+        font-size: 12pt; /* 14px/20px */
+	font: 14px/20px italic Times, sans-serif;
         line-height: 18pt;
         color: black;
         /* margin-top: 0; */
