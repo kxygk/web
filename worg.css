@@ -122,6 +122,7 @@ and modified a bit.. */
         color: black;
         font-size: 100%;
 	background: 	#FFFFEE;
+	opacity: 0.7;
         overflow: auto;
         position: static;
     }
