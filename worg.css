@@ -32,6 +32,10 @@ and modified a bit.. */
 	vertical-align: baseline;
 	top: -0.5em;
     }
+    sub {
+	font-size: 0.8em;
+	line-height: 0;
+    }
     body #content {
         /* min-width: 700px; */
         margin-left: 20px;
