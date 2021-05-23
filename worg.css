@@ -1,7 +1,166 @@
 /* Take from https://github.com/syamajala/syamajala.github.io/blob/master/static/worg.css
 and modified a bit.. */
 
-/*@import url(http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono|Droid+Serif);*/
+
+/* How are HTML elements styled?
+   Each of the element's `properties` are looked up
+   There will be a default `user-agent` value that can be overriden
+
+   Overriding is done using a `declaration`
+   ex:
+   color: black;
+
+   If the declaration is in-line with HTML then that is used directly.
+
+   Else, it uses the style sheet and finds the most specific `selector`
+
+   `Selector specificity` is determined ..
+   FIRST: Based on type
+   IDs -> Classes -> Tags
+   SECOND: Based on the number of specifiers
+   Two specified classes is more specific than one specified class
+   THIRD: Based on source code order (in the `.css` file)
+
+   The first two rules can be summarized with 3 numbers
+   ex: 1 ID, 2 classes and 3 tags -> 1,2,3
+
+   Source order can matter..
+   sometimes you are forced to have multiple selectors of equal value
+   ex:
+   a:link {..}
+   a:visited {..}
+   a:hover {..}
+   a:active {..}
+   One HTML <a> can match to multiple of these
+   And the last 3 should situationally override `a:link`'s declarations
+
+   We try to use as little specificity as possible
+   This allows us to easily style a particular element when needed
+
+   This "cascade", overriding with more specific selectors, can be blocked
+   A less specific selector can just mark a property as `!important`
+   ex:
+   color: red !important;
+   This will also make it higher priority than any inline declarations
+   Unless they too are marked `!important` ..
+
+
+   A parallel process for an HTML element to recieve a style is `inheritance`
+   Some elements will pass down properties to their children
+   These are used if the child has no style set with a selector
+   .. some properties are passed down and others are not ..
+   ex:
+   If a <body> is styled with a `font-family`
+   All child elements will inherit and use this `font-family`
+   Unless they have a different `font-family` set by a declaration
+
+   Cascade selectors will take precedence and override any inherited property
+   However a more specific selector can revert it back to inheriting the value
+   This is done by setting the property to `inherit`
+   ex:
+   a.link {color: blue;}
+   .footer {color: gray;}
+   .footer a {color: inherit;}
+   This makes links blue
+   Then makes the `footer` gray
+   Then makes links in the footer go back to following the footer `color`
+
+   `inherit` can also make normally un-inherited properties inherited ..
+
+   `initial` will reset the value to the "default" (browser's stylesheet..)
+
+   `Shorthands` like `font` and `background` set multiple properties at once
+   If values are omitted then they are set to their `initial` value
+   And they will override any less-specific values you'd set
+   ex:
+   h1 { font-weight: bold; }
+   .title { font: 32px Helvetica, Arial, sans-serif; }
+   The second property is more specific,
+   The `font-weight` was implicit in the `font`
+   B/c it was omitted it was reset to default `normal`
+   And the less specific `font-weight` in `h1` was overriden
+
+   Sometimes values are magically inferred - like with padding
+   ex: padding: 5px 15px;
+   Normally you'd have [top right bottom left] padding
+   But with just two values it will set the vertical and horizontal padding
+
+   Further confusing things
+   padding: 1em 2am
+   1em Vertical (top/bottom)
+   2em Horizontal (right/left)
+   But...
+   background-position: 25% 75%
+   25% Horizontal (right/left)
+   75% Vertival (top/bottom)
+
+
+   Absolute Lengths:
+   1in = 25.4mm = 2.54cm = 6pc = 72pt = 96px
+   Note: pixels aren't pixels
+
+   Relative Lengths:
+   1.0em = font-size of the current element
+   ex:
+   padding: 1em;
+   Padding will be the size of the font
+
+   The `font-size` can be set later/separately
+   And properties sized in em will adjust
+   ex:
+   .box { padding: 1em; }
+   .box .small { font-size: 12px;}
+   .box .large { font-size: 16px;}
+   And then all `.box` elements will have 1em padding..
+
+   If you set a `font-size` using `em` then it uses the parent's `font-size`
+   This makes `em` have a slighting different meaning in one css rule
+   ex:
+   body { font-size: 16px; }
+   .thing { font-size: 1.2em;
+   	    padding: 1.2em: }
+   The first 1.2em will be relative to 16px (so 19.2px)
+   While the second 1.2em is relative to the new local `font-size` 19.2px
+   So the `padding` will actually be 23.04px
+
+   1.0rem = font-size of the root
+   ex:
+   :root { font-size: 1em: }
+   ul { font-size: 0.8rem; }
+   The first will use the browser default `font-size` of
+   `:root` is equivalent to `html`
+   The recond will be relative to that 16px (12.8px)
+
+   Generally you will want to have the root have a sensible font-size
+   Most elements won't need adjustment and will just inherit the default
+   Those that do can be adjusted can then be tuned with `rem` units
+
+   You can then adjust the root font-size and everything will adjust
+   ex:
+   :root { font-size: 0.75em; }
+   @media (min-width: 800px) {
+   	  :root { font-size: 0.875em; } }
+   @media (min-width: 1200px) {
+   	  :root { font-size: 1em; } }
+   Here the root `font-size` is adjusted in a `responsive design` style..
+
+   Selector Combinator
+   .panel { padding: 1em;}
+   .panel > h2 { margin-top: 0;
+   	       	 font-size:0.8rem; }
+   The second selector is the `direct descendant combinator`
+   It selects an `h2` that's a child element of a `.panel` element
+
+   1.0vh 1/100th of the viewporth height
+   1.0vw 1/100th of the viewporth width
+   1.0vmin 1/100th of the smaller of the two
+   1.0vmax 1/100th of the larger of the two
+   ex:
+   .square{
+	width: 90vmin;
+	height: 90vmin;
+
+*/
 
 @media all
 {
