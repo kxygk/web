@@ -1,0 +1,28 @@
+body .title {
+    margin-top: 160px;
+}
+body .title::before {
+    margin-top: calc(0rem - 80px);
+    content: "geokon";
+    position: absolute;
+    width: calc(90vw - 100px);
+    height: 3rem;
+    z-index: -1;
+    display: block;
+    font-size: 3rem;
+    border-bottom: 1px double grey;
+    color: black;
+}
+body::before {
+    content: " ";
+    position: absolute;
+    margin-top: calc(3rem - 182px);
+    width: 92vw;
+    height: 200px;
+    z-index: -1;
+    background-image: url(./panda.svg);
+    background-size: auto 200px;
+    background-position: right 13px top 0rem;
+    background-repeat: no-repeat;
+    background-color: white;
+}
