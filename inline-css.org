@@ -1,0 +1,80 @@
+#+HTML_HEAD_EXTRA:<style>
+#+HTML_HEAD_EXTRA:html {
+#+HTML_HEAD_EXTRA:    margin: 0;
+#+HTML_HEAD_EXTRA:    overflow-x: hidden;
+#+HTML_HEAD_EXTRA:}
+#+HTML_HEAD_EXTRA:body {
+#+HTML_HEAD_EXTRA:    font: 14px/20px italic Times, sans-serif;
+#+HTML_HEAD_EXTRA:    margin-left: 0px;
+#+HTML_HEAD_EXTRA:    margin-right: 0px;
+#+HTML_HEAD_EXTRA:    margin-left: 5vw;
+#+HTML_HEAD_EXTRA:    margin-right: 5vw;}
+#+HTML_HEAD_EXTRA:#table-of-contents {display: none} /* disable for now.. till I have a better plan */
+#+HTML_HEAD_EXTRA:
+#+HTML_HEAD_EXTRA:pre.src {
+#+HTML_HEAD_EXTRA:    margin-left:  -5vw;
+#+HTML_HEAD_EXTRA:    margin-right: -5vw;
+#+HTML_HEAD_EXTRA:    font-family: monospace;
+#+HTML_HEAD_EXTRA:    font-size: 100%;
+#+HTML_HEAD_EXTRA:    background: #FFFFEE;
+#+HTML_HEAD_EXTRA:    overflow: auto;
+#+HTML_HEAD_EXTRA:    position: static;
+#+HTML_HEAD_EXTRA:    border-top: 1px solid  #e5e5d6;
+#+HTML_HEAD_EXTRA:    border-bottom: 1px solid  #e5e5d6;
+#+HTML_HEAD_EXTRA:}
+#+HTML_HEAD_EXTRA:pre.src-org {
+#+HTML_HEAD_EXTRA:    color: red;
+#+HTML_HEAD_EXTRA:    background: #FFFFFF;
+#+HTML_HEAD_EXTRA:}
+#+HTML_HEAD_EXTRA:blockquote {
+#+HTML_HEAD_EXTRA:    width: 100%;
+#+HTML_HEAD_EXTRA:    padding-left: 0.5em;
+#+HTML_HEAD_EXTRA:    border-left: solid;
+#+HTML_HEAD_EXTRA:    border-left-width: 4px;
+#+HTML_HEAD_EXTRA:    border-left-color: grey;
+#+HTML_HEAD_EXTRA:    font: 14px/20px italic Times, serif;
+#+HTML_HEAD_EXTRA:    background-color: #eefaf6; /*#f1ffee;*/
+#+HTML_HEAD_EXTRA:    margin: 0;
+#+HTML_HEAD_EXTRA:.org-center {
+#+HTML_HEAD_EXTRA:    text-align: center;}
+#+HTML_HEAD_EXTRA:}
+#+HTML_HEAD_EXTRA:svg { /* newer inline SVGs */
+#+HTML_HEAD_EXTRA:    width: 100vw;
+#+HTML_HEAD_EXTRA:    overflow: hidden;
+#+HTML_HEAD_EXTRA:    height: auto;
+#+HTML_HEAD_EXTRA:    margin-left: -5vw;
+#+HTML_HEAD_EXTRA:    margin-right: 0;
+#+HTML_HEAD_EXTRA:}
+#+HTML_HEAD_EXTRA:.org-svg { /* non-inlined SVGs */
+#+HTML_HEAD_EXTRA:    width: 100vw;
+#+HTML_HEAD_EXTRA:    display: block;
+#+HTML_HEAD_EXTRA:    margin-left: auto;
+#+HTML_HEAD_EXTRA:    margin-right: auto;
+#+HTML_HEAD_EXTRA:}
+#+HTML_HEAD_EXTRA:img { /* static images */
+#+HTML_HEAD_EXTRA:    width:     100%;
+#+HTML_HEAD_EXTRA:    max-width: max-content;}
+#+HTML_HEAD_EXTRA:ul {padding-left: 1.5em;
+#+HTML_HEAD_EXTRA:    border-left: solid;
+#+HTML_HEAD_EXTRA:    border-left-width: 4px;
+#+HTML_HEAD_EXTRA:    border-left-color: grey;}
+#+HTML_HEAD_EXTRA:h1 {color: #596060;}
+#+HTML_HEAD_EXTRA:h2 {color: black;
+#+HTML_HEAD_EXTRA:    padding-top: 0.5em;
+#+HTML_HEAD_EXTRA:    border-bottom: 4px solid  #aaaaaa;}
+#+HTML_HEAD_EXTRA:h3 {color: black;
+#+HTML_HEAD_EXTRA:    border-bottom: 2px dotted  #aaaaaa;}
+#+HTML_HEAD_EXTRA:b, i{
+#+HTML_HEAD_EXTRA:    font-family: serif ;}
+#+HTML_HEAD_EXTRA:sup { /* fixes line spacing issues due to superscripts */
+#+HTML_HEAD_EXTRA:    font-size: 0.8em;
+#+HTML_HEAD_EXTRA:    line-height: 0;
+#+HTML_HEAD_EXTRA:    position: relative;
+#+HTML_HEAD_EXTRA:    vertical-align: baseline;
+#+HTML_HEAD_EXTRA:    top: -0.5em;
+#+HTML_HEAD_EXTRA:}
+#+HTML_HEAD_EXTRA:sub { /* if these are missing then lines with subscripts take up more space */
+#+HTML_HEAD_EXTRA:    font-size: 0.8em;
+#+HTML_HEAD_EXTRA:    line-height: 0;
+#+HTML_HEAD_EXTRA:}
+#+HTML_HEAD_EXTRA:</style>

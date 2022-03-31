@@ -3,7 +3,7 @@ body .title {
 }
 body .title::before {
     margin-top: calc(0rem - 80px);
-    content: "geokon";
+    content: "kxygk ☀";
     position: absolute;
     width: calc(90vw - 100px);
     height: 3rem;

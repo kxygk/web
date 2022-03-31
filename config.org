@@ -1,4 +1,4 @@
-#+BEGIN_COMMENT
+#+begin_comment
 This is the common export configuration for all of my project/webpages so that they all have a consistent look and can be tweaked from one place
 
 This file is mean to be included at the top of project level =.org= files with a
@@ -8,17 +8,25 @@ And root level files with a
 
 For project README.org files there needs to be an addition:
 ~#+EXPORT_FILE_NAME: index.html~
+#+end_comment
 
-#+END_COMMENT
-
-#+HTML_DOCTYPE: html5
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../web/worg.css" />
+#+html_doctype: html5
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../web/kxygk.css" />
 #+HTML_HEAD_EXTRA: <link rel="shortcut icon" href="../web/panda.svg" type="image/x-icon">
 #+HTML_MATHJAX: path: "../MathJax/MathJax.js?config=TeX-AMS_CHTML"
 
-#+OPTIONS: html-style:nil
+#+options: html-style:nil
 #+OPTIONS: num:nil
 #+OPTIONS: html-postamble:nil
 #+OPTIONS: html-scripts:nil
+#+OPTIONS: tags:nil
 #+OPTIONS: timestamp:nil
-#+PROPERTY: header-args :results org :eval never-export :exports both
+#+PROPERTY: header-args :eval never-export :exports both
+
+#+begin_comment
+This last #+PROPERTY block enables the export of RESULTS blocks. Normally they're not exported to the HTML
+
+NOTE:  ~:results org~ removed b/c I have org mode blocks try to execute..
+#+end_comment
+
+#+INCLUDE: "../web/inline-css.org"
