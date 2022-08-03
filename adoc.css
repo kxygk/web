@@ -1,0 +1,96 @@
+@import '../web/kxygk.css';
+
+html {
+margin: 0;
+overflow-x: hidden;
+}
+body {
+font: 14px/20px italic Times, sans-serif;
+margin-left: 0px;
+margin-right: 0px;
+margin-left: 5vw;
+margin-right: 5vw;}
+#table-of-contents {display: none} /* disable for now.. till I have a better plan */
+pre.src {
+margin-left:  -5vw;
+margin-right: -5vw;
+font-family: monospace;
+font-size: 100%;
+background: #FFFFEE;
+overflow: auto;
+position: static;
+border-top: 1px solid  #e5e5d6;
+border-bottom: 1px solid  #e5e5d6;
+}
+pre.src-org {
+color: red;
+background: #FFFFFF;
+}
+blockquote {
+width: 100%;
+padding-left: 0.5em;
+border-left: solid;
+border-left-width: 4px;
+border-left-color: grey;
+font: 14px/20px italic Times, serif;
+background-color: #eefaf6; /*#f1ffee;*/
+margin: 0;
+.org-center {
+text-align: center;}
+}
+svg { /* newer inline SVGs */
+width: 100vw;
+overflow: hidden;
+height: auto;
+margin-left: -5vw;
+margin-right: 0;
+}
+/*.org-svg {
+width: 100vw;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}*/
+
+img {
+max-width: 100%;
+height: auto;
+max-height: 50vh;
+vertical-align: middle;
+}
+ul {
+list-style-type: circle;
+padding-left: 1.5em;
+border-left: solid;
+border-left-width: 1px;
+border-left-color: grey;}
+h1 {color: #596060;}
+h2 {
+    color: black;
+font-style: italic;
+    padding-top: 0.5em;
+    border-bottom: 4px solid  #aaaaaa;}
+h3 {color: black;
+border-bottom: 2px dotted  #aaaaaa;}
+b, i{
+font-family: serif ;}
+sup { /* fixes line spacing issues due to superscripts */
+font-size: 0.8em;
+line-height: 0;
+position: relative;
+vertical-align: baseline;
+top: -0.5em;
+}
+sub { /* if these are missing then lines with subscripts take up more space */
+font-size: 0.8em;
+line-height: 0;
+}
+.title {
+font-weight: bold;
+}
+dt {
+font-weight: bold;
+}
+td p, dd p {
+    margin: 0;
+}
