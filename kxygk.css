@@ -1,7 +1,7 @@
-body .title {
+body h1.title,.article {
     margin-top: 160px;
 }
-body .title::before {
+body h1.title::before,#header::before {
     margin-top: calc(0rem - 80px);
     content: "kxygk ☀";
     position: absolute;
