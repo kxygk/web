@@ -1,341 +1,112 @@
-/* Take from https://github.com/syamajala/syamajala.github.io/blob/master/static/worg.css
-and modified a bit.. */
-
-
-/* How are HTML elements styled?
-   Each of the element's `properties` are looked up
-   There will be a default `user-agent` value that can be overriden
-
-   Overriding is done using a `declaration`
-   ex:
-   color: black;
-
-   If the declaration is in-line with HTML then that is used directly.
-
-   Else, it uses the style sheet and finds the most specific `selector`
-
-   `Selector specificity` is determined ..
-   FIRST: Based on type
-   IDs -> Classes -> Tags
-   SECOND: Based on the number of specifiers
-   Two specified classes is more specific than one specified class
-   THIRD: Based on source code order (in the `.css` file)
-
-   The first two rules can be summarized with 3 numbers
-   ex: 1 ID, 2 classes and 3 tags -> 1,2,3
-
-   Source order can matter..
-   sometimes you are forced to have multiple selectors of equal value
-   ex:
-   a:link {..}
-   a:visited {..}
-   a:hover {..}
-   a:active {..}
-   One HTML <a> can match to multiple of these
-   And the last 3 should situationally override `a:link`'s declarations
-
-   We try to use as little specificity as possible
-   This allows us to easily style a particular element when needed
-
-   This "cascade", overriding with more specific selectors, can be blocked
-   A less specific selector can just mark a property as `!important`
-   ex:
-   color: red !important;
-   This will also make it higher priority than any inline declarations
-   Unless they too are marked `!important` ..
-
-
-   A parallel process for an HTML element to recieve a style is `inheritance`
-   Some elements will pass down properties to their children
-   These are used if the child has no style set with a selector
-   .. some properties are passed down and others are not ..
-   ex:
-   If a <body> is styled with a `font-family`
-   All child elements will inherit and use this `font-family`
-   Unless they have a different `font-family` set by a declaration
-
-   Cascade selectors will take precedence and override any inherited property
-   However a more specific selector can revert it back to inheriting the value
-   This is done by setting the property to `inherit`
-   ex:
-   a.link {color: blue;}
-   .footer {color: gray;}
-   .footer a {color: inherit;}
-   This makes links blue
-   Then makes the `footer` gray
-   Then makes links in the footer go back to following the footer `color`
-
-   `inherit` can also make normally un-inherited properties inherited ..
-
-   `initial` will reset the value to the "default" (browser's stylesheet..)
-
-   `Shorthands` like `font` and `background` set multiple properties at once
-   If values are omitted then they are set to their `initial` value
-   And they will override any less-specific values you'd set
-   ex:
-   h1 { font-weight: bold; }
-   .title { font: 32px Helvetica, Arial, sans-serif; }
-   The second property is more specific,
-   The `font-weight` was implicit in the `font`
-   B/c it was omitted it was reset to default `normal`
-   And the less specific `font-weight` in `h1` was overriden
-
-   Sometimes values are magically inferred - like with padding
-   ex: padding: 5px 15px;
-   Normally you'd have [top right bottom left] padding
-   But with just two values it will set the vertical and horizontal padding
-
-   Further confusing things
-   padding: 1em 2am
-   1em Vertical (top/bottom)
-   2em Horizontal (right/left)
-   But...
-   background-position: 25% 75%
-   25% Horizontal (right/left)
-   75% Vertival (top/bottom)
-
-
-   Absolute Lengths:
-   1in = 25.4mm = 2.54cm = 6pc = 72pt = 96px
-   Note: pixels aren't pixels
-
-   Relative Lengths:
-   1.0em = font-size of the current element
-   ex:
-   padding: 1em;
-   Padding will be the size of the font
-
-   The `font-size` can be set later/separately
-   And properties sized in em will adjust
-   ex:
-   .box { padding: 1em; }
-   .box .small { font-size: 12px;}
-   .box .large { font-size: 16px;}
-   And then all `.box` elements will have 1em padding..
-
-   If you set a `font-size` using `em` then it uses the parent's `font-size`
-   This makes `em` have a slighting different meaning in one css rule
-   ex:
-   body { font-size: 16px; }
-   .thing { font-size: 1.2em;
-   	    padding: 1.2em: }
-   The first 1.2em will be relative to 16px (so 19.2px)
-   While the second 1.2em is relative to the new local `font-size` 19.2px
-   So the `padding` will actually be 23.04px
-
-   1.0rem = font-size of the root
-   ex:
-   :root { font-size: 1em: }
-   ul { font-size: 0.8rem; }
-   The first will use the browser default `font-size` of
-   `:root` is equivalent to `html`
-   The recond will be relative to that 16px (12.8px)
-
-   Generally you will want to have the root have a sensible font-size
-   Most elements won't need adjustment and will just inherit the default
-   Those that do can be adjusted can then be tuned with `rem` units
-
-   You can then adjust the root font-size and everything will adjust
-   ex:
-   :root { font-size: 0.75em; }
-   @media (min-width: 800px) {
-   	  :root { font-size: 0.875em; } }
-   @media (min-width: 1200px) {
-   	  :root { font-size: 1em; } }
-   Here the root `font-size` is adjusted in a `responsive design` style..
-
-   Selector Combinator
-   .panel { padding: 1em;}
-   .panel > h2 { margin-top: 0;
-   	       	 font-size:0.8rem; }
-   The second selector is the `direct descendant combinator`
-   It selects an `h2` that's a child element of a `.panel` element
-
-   1.0vh 1/100th of the viewporth height
-   1.0vw 1/100th of the viewporth width
-   1.0vmin 1/100th of the smaller of the two
-   1.0vmax 1/100th of the larger of the two
-   ex:
-   .square{
-	width: 90vmin;
-	height: 90vmin;
-
-*/
-
-@media all
-{
-    html {
-        margin: 0;
-        /*font: 300 .9em/1.6em "Droid Serif", Cambria, Georgia, "DejaVu Serif", serif;*/
-	background-image: url(./panda.svg);
-	background-size: auto 200px;
-        background-position: right 13px top 7px;
-        background-repeat: no-repeat;
-        background-color: white;
-
-    }
-
-    body {
-        font-size: 12pt; /* 14px/20px */
-	font: 14px/20px italic Times, sans-serif;
-        line-height: 18pt;
-        color: black;
-        /* margin-top: 0; */
-        /* margin-bottom: 0; */
-
-    }
-    sup {
-	font-size: 0.8em;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
-	top: -0.5em;
-    }
-    sub {
-	font-size: 0.8em;
-	line-height: 0;
-    }
-    body #content {
-        /* min-width: 700px; */
-        margin-left: 20px;
-        margin-right: 20px;
-        /* padding: 0em; */
-        /* box-shadow: 3px 3px 5px #888; */
-    }
-    body .title {
-        margin-right: 0px;
-	text-align: center;
-        font-size: 25pt;
-    }
-
-    body::before {
-	content: "geokon";
-	display: block;
-	font-size:2.1em;
-        border-bottom: 1px double grey;
-	color: black;
-	margin-bottom: 1em;
-	margin-top: 85px;
-        margin-left: 20px;
-        margin-right: 93px;
-    }
-    #org-div-home-and-up{
-	display: none
-    }
-
-    /* TOC inspired by http://jashkenas.github.com/coffee-script */
-    #table-of-contents {
-	display: none}
-    #table-of-contents h2 {
-	display: none}
-    #table-of-contents #text-table-of-contents {
-        display: none;}
-    #table-of-contents:hover #text-table-of-contents {
-        display: none;}
-
-    #license {
-        background-color: #eeeeee;
-    }
-    b {
-	font-family: serif ;
-    }
-
-    h1 {
-        /*
-      font-family:Sans;
-      font-weight:bold; */
-        font-size:2.1em;
-        padding:0 0 30px 0;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        margin-right: 93px;
-        /*    color: #6C5D4F; */
-        color: grey;
-    }
-    h2 {
-        font-family:sans-serif;
-        font-size:1.45em;
-        line-height:16px;
-        padding:10px 0 10px 0;
-        color: black;
-	border-bottom: 1px solid  #e6e6e6;
-    }
-    h3 {
-        font-family:sans-serif;
-        font-size:1.3em;
-        color: brown;
-    }
-    h4 {
-        font-family:sans-serif;
-        font-size:1.2em;
-        margin-left: 1.2em;
-        color: #A5573E;
-    }
-    a {text-decoration: none; font-weight: 400;}
-    a:visited {text-decoration: none; font-weight: 400;}
-    a:hover {text-decoration: underline;}
-    pre {
-	margin-left: -20px;
-	margin-right: -20px;
-	margin-top: 0px;
-	margin-bottom: 0px;
-    }
-    pre.a {
-        color: inherit;
-        background-color: inherit;
-        font: inherit;
-        text-decoration: inherit;
-    }
-    pre.a:hover {
-        text-decoration: underline;
-    }
-
-    pre.src {
-	font-family: monospace;
-        color: black;
-        font-size: 100%;
-	background: 	#FFFFEE;
-	opacity: 0.7;
-        overflow: auto;
-        position: static;
-    }
-
-    pre.src-org { /* RESULTS output from code evaluation */
-	font-family: monospace;
-        color: red;
-        font-size: 100%;
-	background: 	#FFFFFF;
-        overflow: auto;
-        position: static;
-    }
-    ul {
-	list-style-type:none;
-	margin-top: 0px;
-	margin-bottom: 0px;
-    }
-    p {
-	margin-top: 0px;
-	margin-bottom: 0px;
-    }
-    blockquote {
-	font: 14px/20px italic Times, serif;
-	background-color: #f1ffee;
-	margin: 5px;;
-    }
-
-    .org-svg {
-	width: 100%;
-	max-height: 350px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-    }
-    img {
-	width:100%;
-	max-width: max-content;
-    }
-
-    .org-center {
-	text-align: center;
-    }
+html {
+    margin: 0;
+    overflow-x: hidden;
 }
+body {
+    font: 14px/20px italic Times, sans-serif;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-left: 5vw;
+    margin-right: 5vw;}
+#table-of-contents {display: none} /* disable for now.. till I have a better plan */
+
+pre.src {
+    margin-left:  -5vw;
+    margin-right: -5vw;
+    font-family: monospace;
+    font-size: 100%;
+    background: #FFFFEE;
+    overflow: auto;
+    position: static;
+    border-top: 1px solid  #e5e5d6;
+    border-bottom: 1px solid  #e5e5d6;
+}
+pre.src-org {
+    color: red;
+    background: #FFFFFF;
+}
+blockquote {
+    width: 100%;
+    padding-left: 0.5em;
+    border-left: solid;
+    border-left-width: 4px;
+    border-left-color: grey;
+    font: 14px/20px italic Times, serif;
+    background-color: #eefaf6; /*#f1ffee;*/
+    margin: 0;
+}
+.org-center {
+    text-align: center;
+}
+svg { /* newer inline SVGs */
+    width: 100vw;
+    overflow: hidden;
+    height: auto;
+    margin-left: -5vw;
+    margin-right: 0;
+}
+.org-svg { /* non-inlined SVGs */
+    width: 100vw;
+    /* max-height: 350px; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+img { /* static images */
+    width:     100%;
+    max-width: max-content;}
+ul {padding-left: 1.5em;
+    border-left: solid;
+    border-left-width: 4px;
+    border-left-color: grey;}
+h1 {color: #596060;}
+h2 {color: black;
+    padding-top: 0.5em;
+    border-bottom: 4px solid  #aaaaaa;}
+h3 {color: black;
+    border-bottom: 2px dotted  #aaaaaa;}
+
+
+
+
+
+
+
+body .title {
+    margin-top: 160px;
+}
+body .title::before {
+    margin-top: calc(0rem - 80px);
+    content: "geokon";
+    position: absolute;
+    width: calc(90vw - 100px);
+    height: 3rem;
+    z-index: -1;
+    display: block;
+    font-size: 3rem;
+    border-bottom: 1px double #596060;
+    color: black;
+}
+body::before {
+    content: " ";
+    position: absolute;
+    margin-top: calc(3rem - 182px);
+    width: 92vw;
+    height: 200px;
+    z-index: -1;
+    background-image: url(./panda.svg);
+    background-size: auto 200px;
+    background-position: right 13px top 0rem;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+
+
+
+
+
+
+
+
+

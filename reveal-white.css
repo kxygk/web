@@ -171,7 +171,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal ul {
   display: inline-block;
   text-align: left;
-  margin: 0 0 0 1em;
+  margin: 0 0 0 2em;
 }
 
 .reveal ol {
@@ -204,6 +204,11 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 .reveal dd {
   margin-left: 40px;
+}
+
+.reveal .title {
+  font-weight: bold;
+  margin: 0 0 0 0.5em;
 }
 
 .reveal blockquote {
