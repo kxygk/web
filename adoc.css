@@ -11,7 +11,7 @@ margin-right: 0px;
 margin-left: 5vw;
 margin-right: 5vw;}
 #table-of-contents {display: none} /* disable for now.. till I have a better plan */
-pre.src {
+.listingblock,pre.src {
 margin-left:  -5vw;
 margin-right: -5vw;
 font-family: monospace;
